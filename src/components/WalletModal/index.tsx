@@ -34,7 +34,6 @@ const WalletModal: React.FC<IWalletModal> = ({
   const { login } = useConnectWallet();
   const { switchNetwork } = useSwitchNetwork();
   const [isExpanded, setIsExpanded] = useState(false);
-  console.log('Wallet modal open')
 
   const handleConnectWallet = async (wallet: WalletsConfig): Promise<void> => {
     try {
@@ -123,7 +122,7 @@ const WalletModal: React.FC<IWalletModal> = ({
                 d="M11.5837 5.83331L7.50033 9.91665L3.41699 5.83331"
                 stroke="#898F9C"
                 fill={"none"}
-                stroke-width="2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

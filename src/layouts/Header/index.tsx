@@ -42,9 +42,6 @@ export const Header = () => {
 		: (props: any) => <Flex {...props} />;
 
 	const handleSendEther = async () => {
-
-		// console.log('useWeb3React in the handler:', chainId, account, provider);
-
 		try {
 			// Adjust the URL and payload as needed for your Express API
 			const response = await axios.post("http://localhost:3000/api/marco_user", {
@@ -130,7 +127,7 @@ export const Header = () => {
 							<PriceMkt />
 						</Flex>
 
-						<button
+						{account ? (<button
 							className={
 								"prose cursor-pointer items-center gap-1 bg-white px-3 py-2"
 							}
@@ -144,7 +141,7 @@ export const Header = () => {
 							onClick={handleSendEther}>
 
 							Send Ether
-						</button>
+						</button>) : ""}
 
 
 						<ButtonConnectWallet>

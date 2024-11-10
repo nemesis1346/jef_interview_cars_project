@@ -11,10 +11,7 @@ import OurPartner from "./OutPartner";
 
 
 const HomePage: React.FC = () => {
-  useEffect(() => {
-    console.log('HomePage rendered');
-  }, []);
-  console.log('Home Page? Tx')
+
   return (
     <Flex direction={"column"} position={"relative"}>
       <IncomeSolution />

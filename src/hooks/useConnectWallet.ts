@@ -13,8 +13,6 @@ export const useConnectWallet = () => {
   const { disconnect } = useDisconnect();
   const [chainIdLocal] = useChainIdLocal();
 
-  console.log('This is useConnectWallet')
-
   const login = useCallback(
     async (connectorId: ConnectorNames, chainId: number) => {
       const findConnector = connectors.find((c) => c.id === connectorId);

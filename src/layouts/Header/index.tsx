@@ -41,10 +41,25 @@ export const Header = () => {
 		? wallet.icon
 		: (props: any) => <Flex {...props} />;
 
+	const handleGetBalance = async () => {
+		try {
+			// Adjust the URL and payload as needed for your Express API
+			const response = await axios.post("http://localhost:3001/api/marco_user", {
+				data: {
+					message: "Hello from the Get Balance button!",
+					walletAddress: account,
+				},
+			});
+			console.log("Server response:", response.data);
+		} catch (error) {
+			console.error("Error calling the server:", error);
+		}
+	};
+
 	const handleSendEther = async () => {
 		try {
 			// Adjust the URL and payload as needed for your Express API
-			const response = await axios.post("http://localhost:3000/api/marco_user", {
+			const response = await axios.post("http://localhost:3001/api/send_tokens", {
 				data: {
 					message: "Hello from the Send Ether button!",
 					walletAddress: account,
@@ -141,6 +156,22 @@ export const Header = () => {
 							onClick={handleSendEther}>
 
 							Send Ether
+						</button>) : ""}
+
+						{account ? (<button
+							className={
+								"prose cursor-pointer items-center gap-1 bg-white px-3 py-2"
+							}
+							style={{
+								backgroundColor: "var(--chakra-colors-bg-brand)",
+								color: "var(--chakra-colors-bg-default)",
+								borderRadius: "8px",
+								padding: "0.5rem 1rem",
+								cursor: "pointer",
+							}}
+							onClick={handleGetBalance}>
+
+							Get Balance
 						</button>) : ""}
 
 

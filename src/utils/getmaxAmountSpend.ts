@@ -21,10 +21,10 @@ export function maxAmountSpend1(
 ): CurrencyAmount<Currency> | undefined {
   if (!currencyAmount) return undefined;
   if (currencyAmount.currency?.isNative) {
-    if (JSBI.greaterThan(currencyAmount.quotient, MIN_BNB)) {
+    if (JSBI.greaterThan(JSBI.BigInt(currencyAmount.quotient.toString()), MIN_BNB)) {
       return CurrencyAmount.fromRawAmount(
         currencyAmount.currency,
-        JSBI.subtract(currencyAmount.quotient, MIN_BNB)
+        JSBI.subtract(JSBI.BigInt(currencyAmount.quotient.toString()), MIN_BNB).toString()
       );
     }
     return CurrencyAmount.fromRawAmount(currencyAmount.currency, BIG_INT_ZERO);

@@ -18,6 +18,7 @@
     "@ethersproject/bytes": "^5.7.0",
     "@pancakeswap/multicall": "^0.0.2",
     "@pancakeswap/sdk": "3.1.4",
+    "@pancakeswap/swap-sdk-core": "^1.0.0",
     "@pancakeswap/smart-router": "0.6.1",
     "@pancakeswap/token-lists": "^0.0.8",
     "@primno/dpapi": "^1.1.2",

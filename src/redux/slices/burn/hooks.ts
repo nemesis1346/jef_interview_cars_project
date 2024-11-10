@@ -63,13 +63,15 @@ export function useDerivedBurnInfo(
 
   // liquidity values
   const totalSupply = useTotalSupply(pair?.liquidityToken);
+  console.log('Total Supply')
+  console.log(totalSupply)
   const liquidityValueA =
     pair &&
     totalSupply &&
     userLiquidity &&
     tokenA &&
     // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalSupply.quotient, userLiquidity.quotient)
+    JSBI.greaterThanOrEqual(JSBI.BigInt(totalSupply.quotient.toString()),JSBI.BigInt (userLiquidity.quotient.toString()))
       ? CurrencyAmount.fromRawAmount(
           tokenA,
           pair.getLiquidityValue(tokenA, totalSupply, userLiquidity, false)
@@ -83,7 +85,7 @@ export function useDerivedBurnInfo(
     userLiquidity &&
     tokenB &&
     // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalSupply.quotient, userLiquidity.quotient)
+    JSBI.greaterThanOrEqual(JSBI.BigInt(totalSupply.quotient.toString()), JSBI.BigInt(userLiquidity.quotient.toString()))
       ? CurrencyAmount.fromRawAmount(
           tokenB,
           pair.getLiquidityValue(tokenB, totalSupply, userLiquidity, false)
@@ -210,10 +212,9 @@ export function useDerivedBurnInfo(
       ? CurrencyAmount.fromRawAmount(
           tokenA as any,
           JSBI.add(
-            percentToRemove.multiply((liquidityValueA as any)?.quotient).quotient,
-            estimateZapOutAmount.quotient
-          )
-        )
+            JSBI.BigInt(percentToRemove),
+            JSBI.BigInt(estimateZapOutAmount)
+          ).toString())
       : !removalCheckedA
       ? undefined
       : amountA,
@@ -223,9 +224,9 @@ export function useDerivedBurnInfo(
       ? CurrencyAmount.fromRawAmount(
           tokenB as any,
           JSBI.add(
-            percentToRemove.multiply((liquidityValueB as any)?.quotient).quotient,
-            estimateZapOutAmount.quotient
-          )
+            JSBI.BigInt(percentToRemove),
+            JSBI.BigInt(estimateZapOutAmount)
+          ).toString()
         )
       : !removalCheckedB
       ? undefined

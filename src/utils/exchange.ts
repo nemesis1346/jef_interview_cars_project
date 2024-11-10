@@ -45,7 +45,7 @@ export const PINNED_PAIRS: any = {
   ],
 };
 
-export const BASE_FEE = new Percent(JSBI.BigInt(25), BIPS_BASE);
+export const BASE_FEE = new Percent(BigInt(25), BIPS_BASE);
 
 export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE);
 
@@ -63,12 +63,12 @@ export function calculateSlippageAmount(
   }
   return [
     JSBI.divide(
-      JSBI.multiply(value.quotient, JSBI.BigInt(10000 - slippage)),
-      BIPS_BASE
+      JSBI.multiply(JSBI.BigInt(value.quotient.toString()), JSBI.BigInt(10000 - slippage)),
+      JSBI.BigInt(BIPS_BASE.toString())
     ),
     JSBI.divide(
-      JSBI.multiply(value.quotient, JSBI.BigInt(10000 + slippage)),
-      BIPS_BASE
+      JSBI.multiply(JSBI.BigInt(value.quotient.toString()), JSBI.BigInt(10000 + slippage)),
+      JSBI.BigInt(BIPS_BASE.toString())
     ),
   ];
 }
@@ -95,7 +95,7 @@ export function computeSlippageAdjustedAmounts(
 }
 
 export function basisPointsToPercent(num: number): Percent {
-  return new Percent(JSBI.BigInt(num), BIPS_BASE);
+  return new Percent(BigInt(num), BIPS_BASE);
 }
 
 export function computeTradePriceBreakdown(

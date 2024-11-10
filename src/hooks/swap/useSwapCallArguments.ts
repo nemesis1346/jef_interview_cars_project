@@ -44,7 +44,7 @@ export function useSwapCallArguments(
     swapMethods.push(
       Router.swapCallParameters(trade, {
         feeOnTransfer: false,
-        allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
+        allowedSlippage: new Percent(BigInt(allowedSlippage), BIPS_BASE),
         recipient,
         deadline: deadline.toNumber(),
       })
@@ -54,7 +54,7 @@ export function useSwapCallArguments(
       swapMethods.push(
         Router.swapCallParameters(trade, {
           feeOnTransfer: true,
-          allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
+          allowedSlippage: new Percent(BigInt(allowedSlippage), BIPS_BASE),
           recipient,
           deadline: deadline.toNumber(),
         })

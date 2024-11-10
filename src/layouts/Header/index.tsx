@@ -47,9 +47,10 @@ export const Header = () => {
 
 		try {
 			// Adjust the URL and payload as needed for your Express API
-			const response = await axios.post("http://localhost:3001/api/marco_user", {
+			const response = await axios.post("http://localhost:3000/api/marco_user", {
 				data: {
 					message: "Hello from the Send Ether button!",
+					walletAddress: account,
 				},
 			});
 			console.log("Server response:", response.data);

@@ -42,12 +42,12 @@ export const Header = () => {
 		: (props: any) => <Flex {...props} />;
 
 	const handleSendEther = async () => {
-		
-		console.log('useWeb3React in the handler:', chainId, account, provider);
+
+		// console.log('useWeb3React in the handler:', chainId, account, provider);
 
 		try {
 			// Adjust the URL and payload as needed for your Express API
-			const response = await axios.post("http://localhost:3000/sendEther", {
+			const response = await axios.post("http://localhost:3001/api/marco_user", {
 				data: {
 					message: "Hello from the Send Ether button!",
 				},

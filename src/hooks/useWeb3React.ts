@@ -21,7 +21,7 @@ export function useWeb3React() {
   const isSupportedChain = chain && isChainSupported(chain?.id, CHAIN_IDS);
   const provider = useProvider({ chainId: chain?.id || fallbackChain });
 
-  console.log('props useWeb3React', chain, address)
+  // console.log('props useWeb3React', chain, address)
 
   return {
     provider,

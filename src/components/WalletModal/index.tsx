@@ -34,6 +34,7 @@ const WalletModal: React.FC<IWalletModal> = ({
   const { login } = useConnectWallet();
   const { switchNetwork } = useSwitchNetwork();
   const [isExpanded, setIsExpanded] = useState(false);
+  console.log('Wallet modal open')
 
   const handleConnectWallet = async (wallet: WalletsConfig): Promise<void> => {
     try {
@@ -50,7 +51,10 @@ const WalletModal: React.FC<IWalletModal> = ({
       setTimeout(() => {
         try {
           const web3Modal = document.getElementsByTagName("w3m-modal");
+
           if (web3Modal) {
+            console.log('Web3 modal', web3Modal)
+
             // @ts-ignore
             const root = web3Modal[0].shadowRoot;
             if (root) {
@@ -65,6 +69,7 @@ const WalletModal: React.FC<IWalletModal> = ({
           /* empty */
         }
       }, 500);
+      console.log('Wallet in Connect Wallet Button', wallet)
       await login(wallet?.connectorId, chainId);
       localStorage.setItem("wallet", wallet?.connectorId);
       onDismiss();

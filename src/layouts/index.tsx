@@ -15,7 +15,7 @@ interface LayoutProps {
 export const Layout: FC<LayoutProps> = (props) => {
   const { children } = props;
   const router = useRouter();
-
+  console.log('Finally Home Page?')
   return (
     <Flex justifyContent={"space-between"} flexDirection={"column"} className="bg-default h-full relative z-9 min-h-[100vh]">
       <Flex direction="column" hidden={router?.asPath !== "/"}>

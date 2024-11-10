@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 const Index = () => {
+  console.log('Home Page')
   return (
     <div className={inter.className}>
       <HomePage />

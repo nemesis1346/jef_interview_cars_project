@@ -7,6 +7,7 @@ import { Box } from "@chakra-ui/react";
 import { Typography } from "@src/components/Typography";
 
 const Nfts = () => {
+  console.log('NFT page?')
   return (
     <>
       <Meta title="NFT: Welcome to the captivating world of Mike Token NFTs" description="" />

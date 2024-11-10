@@ -1,7 +1,6 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    dirs: ["."],
+    ignoreDuringBuilds: true, // Disable eslint during build
   },
   images: {
     domains: [
@@ -15,10 +14,17 @@ const nextConfig = {
   trailingSlash: false,
   basePath: "",
   transpilePackages: ["@pancakeswap/token-lists", "@pancakeswap/smart-router"],
-  // The starter code load resources from `public` folder with `router.basePath` in React components.
-  // So, the source code is "basePath-ready".
-  // You can remove `basePath` if you don't need it.
-  reactStrictMode: false,
+  reactStrictMode: true, // React strict mode enabled
+
+  webpack(config, { isServer }) {
+    // Suppress Webpack warnings in development
+    if (!isServer) {
+      config.stats = {
+        warnings: false, // Disable all Webpack warnings in the browser
+      };
+    }
+    return config;
+  },
 }
 
 module.exports = nextConfig

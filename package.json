@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"node server/server.js\" \"next dev\"",
+    "dev": "concurrently \"node server/marco_api_test.js\" \"next dev\"",
     "build": "concurrently \"node server/server.js\" \"next build\"",
-    "start": "concurrently \"node server/server.js\" \"next start\"",
+    "start": "concurrently \"node server/marco_api_test.js\" \"next start\"",
     "lint": "concurrently \"node server/server.js\" \"next lint\""
   },
   "dependencies": {
@@ -18,6 +18,7 @@
     "@ethersproject/bytes": "^5.7.0",
     "@pancakeswap/multicall": "^0.0.2",
     "@pancakeswap/sdk": "3.1.4",
+    "@pancakeswap/swap-sdk-core": "^1.0.0",
     "@pancakeswap/smart-router": "0.6.1",
     "@pancakeswap/token-lists": "^0.0.8",
     "@primno/dpapi": "^1.1.2",
@@ -33,6 +34,7 @@
     "bignumber.js": "^9.1.1",
     "cloudinary": "^2.2.0",
     "concurrently": "^8.2.2",
+    "fs": "0.0.1-security",
     "cookie-parser": "^1.4.6",
     "dayjs": "^1.11.9",
     "dotenv": "^16.4.5",
@@ -72,7 +74,8 @@
     "tailwindcss": "3.3.2",
     "typescript": "4.9.5",
     "validator": "^13.11.0",
-    "wagmi": "^0.12.1"
+    "wagmi": "^0.12.1",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "@types/numeral": "^2.0.2",

@@ -12,28 +12,28 @@ import {
   USDT_BSC,
 } from "./tokens/common";
 
-export const BIG_INT_ZERO = JSBI.BigInt(0);
-export const BIPS_BASE = JSBI.BigInt(10000);
+export const BIG_INT_ZERO = BigInt(0);
+export const BIPS_BASE = BigInt(10000);
 
 export const ALLOWED_PRICE_IMPACT_LOW: Percent = new Percent(
-  JSBI.BigInt(100),
+  BigInt(100),
   BIPS_BASE
 ); // 1%
 export const ALLOWED_PRICE_IMPACT_MEDIUM: Percent = new Percent(
-  JSBI.BigInt(300),
+  BigInt(300),
   BIPS_BASE
 ); // 3%
 export const ALLOWED_PRICE_IMPACT_HIGH: Percent = new Percent(
-  JSBI.BigInt(500),
+  BigInt(500),
   BIPS_BASE
 ); // 5%
 
 // for non expert mode disable swaps above this
 export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(
-  JSBI.BigInt(1500),
+  BigInt(1500),
   BIPS_BASE
 ); // 15%
-export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(1000), BIPS_BASE) // 10%
+export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(BigInt(1000), BIPS_BASE) // 10%
 
 export const BIG_INT_TEN = JSBI.BigInt(10);
 export const MIN_BNB: JSBI = JSBI.exponentiate(BIG_INT_TEN, JSBI.BigInt(16)); // .01 BNB

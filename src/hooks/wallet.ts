@@ -159,7 +159,7 @@ export function useNativeBalances(
           if (value)
             memo[address] = CurrencyAmount.fromRawAmount(
               native,
-              JSBI.BigInt(value.toString())
+              BigInt(value.toString())
             );
           return memo;
         },

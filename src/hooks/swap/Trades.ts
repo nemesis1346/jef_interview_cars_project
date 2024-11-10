@@ -64,7 +64,7 @@ export function useTradeExactIn(
 const MAX_HOPS = 3;
 
 export const BETTER_TRADE_LESS_HOPS_THRESHOLD = new Percent(
-  JSBI.BigInt(50),
+  BigInt(50),
   BIPS_BASE
 );
 

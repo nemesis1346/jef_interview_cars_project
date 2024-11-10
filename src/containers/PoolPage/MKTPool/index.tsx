@@ -506,7 +506,7 @@ const CardPoolClassic: React.FC<{
             <path
               d="M0 12C0 5.37258 5.37258 0 12 0H413C419.627 0 425 5.37258 425 12V90.7585C425 97.0111 420.199 102.216 413.967 102.719L212.5 119L11.0334 102.719C4.80112 102.216 0 97.0111 0 90.7585V12Z"
               fill="black"
-              fill-opacity="0.3"
+              fillOpacity="0.3"
             />
           </g>
           <defs>
@@ -517,9 +517,9 @@ const CardPoolClassic: React.FC<{
               width="441"
               height="135"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feGaussianBlur in="BackgroundImageFix" stdDeviation="4" />
               <feComposite
                 in2="SourceAlpha"

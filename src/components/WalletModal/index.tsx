@@ -50,7 +50,10 @@ const WalletModal: React.FC<IWalletModal> = ({
       setTimeout(() => {
         try {
           const web3Modal = document.getElementsByTagName("w3m-modal");
+
           if (web3Modal) {
+            console.log('Web3 modal', web3Modal)
+
             // @ts-ignore
             const root = web3Modal[0].shadowRoot;
             if (root) {
@@ -65,6 +68,7 @@ const WalletModal: React.FC<IWalletModal> = ({
           /* empty */
         }
       }, 500);
+      console.log('Wallet in Connect Wallet Button', wallet)
       await login(wallet?.connectorId, chainId);
       localStorage.setItem("wallet", wallet?.connectorId);
       onDismiss();
@@ -118,7 +122,7 @@ const WalletModal: React.FC<IWalletModal> = ({
                 d="M11.5837 5.83331L7.50033 9.91665L3.41699 5.83331"
                 stroke="#898F9C"
                 fill={"none"}
-                stroke-width="2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

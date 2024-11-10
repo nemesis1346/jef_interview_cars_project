@@ -1,6 +1,6 @@
 import { parseUnits } from "@ethersproject/units";
 import type { Currency } from "@pancakeswap/swap-sdk-core";
-import { CurrencyAmount, JSBI } from "@pancakeswap/swap-sdk-core";
+import { CurrencyAmount } from "@pancakeswap/swap-sdk-core";
 
 // try to parse a user entered amount for a given token
 function tryParseAmount<T extends Currency>(
@@ -16,7 +16,7 @@ function tryParseAmount<T extends Currency>(
     if (typedValueParsed !== "0") {
       return CurrencyAmount.fromRawAmount(
         currency,
-        JSBI.BigInt(typedValueParsed)
+        BigInt(typedValueParsed)
       );
     }
   } catch (error) {

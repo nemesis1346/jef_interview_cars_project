@@ -100,7 +100,7 @@ const TeamMember: React.FC = () => {
         <div className="flex w-5/12 max-lg:w-full max-lg:mt-[24px] max-lg:justify-start justify-end"></div>
       </div>
       <div className="block max-md:block max-xl:hidden">
-        <StyledSlider {...settings}>
+        <StyledSlider >
           {member.map((e, index) => {
             return (
               <div key={index} className="card-member pr-8 h-[650px]">

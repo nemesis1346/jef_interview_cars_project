@@ -49,35 +49,35 @@ const Tokenomics: React.FC = () => {
     return isLargerThan1025
       ? coreImg1920
       : isLargerThan481
-      ? coreImg1024
-      : coreImg1024;
+        ? coreImg1024
+        : coreImg1024;
   }, [isLargerThan481, isLargerThan1025]);
   const sizeChart = useMemo(() => {
     return isLargerThan1025
       ? 400
       : isLargerThan769
-      ? 340
-      : isLargerThan481
-      ? 380
-      : 250;
+        ? 340
+        : isLargerThan481
+          ? 380
+          : 250;
   }, [isLargerThan481, isLargerThan1025, isLargerThan769]);
   const sizeOuter = useMemo(() => {
     return isLargerThan1025
       ? 200
       : isLargerThan769
-      ? 170
-      : isLargerThan481
-      ? 190
-      : 100;
+        ? 170
+        : isLargerThan481
+          ? 190
+          : 100;
   }, [isLargerThan481, isLargerThan1025, isLargerThan769]);
   const sizeInner = useMemo(() => {
     return isLargerThan1025
       ? 150
       : isLargerThan769
-      ? 120
-      : isLargerThan481
-      ? 140
-      : 70;
+        ? 120
+        : isLargerThan481
+          ? 140
+          : 70;
   }, [isLargerThan481, isLargerThan1025, isLargerThan769]);
 
   return (
@@ -328,31 +328,34 @@ const Tokenomics: React.FC = () => {
               </Flex>
             </Flex>
             <Flex my="auto" ml="auto">
-              <ResponsiveContainer width={sizeChart} height={sizeChart}>
-                <PieChart
-                  width={sizeChart}
-                  height={sizeChart}
-                  style={{ border: "none" }}
-                >
-                  <Pie
-                    data={data}
-                    cx={"50%"}
-                    cy={"50%"}
-                    outerRadius={sizeOuter}
-                    dataKey="quantity"
-                    innerRadius={sizeInner}
+              <div style={{ width: sizeChart, height: sizeChart }}>
+
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart
+                    width={sizeChart}
+                    height={sizeChart}
                     style={{ border: "none" }}
                   >
-                    {data.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                        style={{ border: "none" }}
-                      />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+                    <Pie
+                      data={data}
+                      cx={"50%"}
+                      cy={"50%"}
+                      outerRadius={sizeOuter}
+                      dataKey="quantity"
+                      innerRadius={sizeInner}
+                      style={{ border: "none" }}
+                    >
+                      {data.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                          style={{ border: "none" }}
+                        />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
             </Flex>
           </Flex>
         </Flex>

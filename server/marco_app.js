@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
-const router = require("./routes");
+const router = require("./marco_routes");
 
 // Setup logging
 const log = (message) => {
